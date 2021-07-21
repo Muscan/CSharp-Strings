@@ -14,6 +14,13 @@ namespace Lectia3_Strings
 
 
 
+            //string x = "Ana";
+            //string t = "Anb";
+            //Console.WriteLine(t.CompareTo(x));
+
+
+
+
             // string text = "Doremi re";
 
 
@@ -80,8 +87,25 @@ namespace Lectia3_Strings
             //double AverageASCII = AvgASCII("Media avg");//https://www.alpharithms.com/ascii-table-512119/
             //Console.Write(AverageASCII);
 
-            Console.Write(NrAparitii("cel mai cel din cel"));
-            
+            //Console.Write(NrAparitii("cel  cel cel cel mai cel cel"));
+            //Console.Write(OglindaSir("ABC DEFZ"));
+            //SirulOglinda("abc def");//afbecd
+
+            // int textCount = CountLowerCase("A un doi treipPO");
+            // Console.Write(textCount);
+
+            // bool sol = isToateConsoane("AdasD");
+
+
+            //Console.WriteLine(sol);
+
+
+            //Console.WriteLine(isPalindrom("ana"));
+
+            //AfisareCuvVocale("ae aei aeiou");
+
+    
+
 
 
         }

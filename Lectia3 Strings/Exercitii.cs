@@ -54,7 +54,7 @@ namespace Lectia3_Strings
             return false;
 
         }
-        
+
         public static int NumarareVocaleText(String text)
         {
             int contor = 0;
@@ -230,17 +230,17 @@ namespace Lectia3_Strings
         "Vine vara"         "Afara e cald"
         "E cald in casa"    "Apa e buna"
          */
-        public static void SirLungCaractere(string [,] matriciString )
+        public static void SirLungCaractere(string[,] matriciString)
         {
             int maxim = 0;
             int indiceN = 0;
             int indiceM = 0;
             //parcurgere linii
-            for(int i=0; i<matriciString.GetLength(0); i++)//returneaza nr. de randuri din matrice
+            for (int i = 0; i < matriciString.GetLength(0); i++)//returneaza nr. de randuri din matrice
             {
                 //parcurgere coloane
                 maxim = 0;
-                for(int j=0; j<matriciString.GetLength(1); j++)//imi da nr. de coloane din matrice
+                for (int j = 0; j < matriciString.GetLength(1); j++)//imi da nr. de coloane din matrice
                 {
                     if (matriciString[i, j].Length > maxim)
                     {
@@ -248,7 +248,7 @@ namespace Lectia3_Strings
                         indiceN = i;
                         indiceM = j;
                     }
-                        
+
                 }
                 Console.WriteLine(matriciString[indiceN, indiceM]);
             }
@@ -282,7 +282,7 @@ namespace Lectia3_Strings
             string cuvantNou = "";
             for (int i = 0; i < cuvantul.Length; i++)
             {
-                
+
                 if (char.IsLower(cuvantul[i]))
                 {
                     cuvantNou += char.ToUpper(cuvantul[i]);
@@ -290,25 +290,25 @@ namespace Lectia3_Strings
                 else
                     cuvantNou += char.ToLower(cuvantul[i]);
             }
-            return cuvantNou; 
-          }
+            return cuvantNou;
+        }
 
 
         public static string Mioritic2(string cuvantul)
         {
             string cuvantNou = "";
-            for (int i =0; i<cuvantul.Length; i++)
+            for (int i = 0; i < cuvantul.Length; i++)
             {
                 if (cuvantul[i] >= 'a' && cuvantul[i] <= 'z')
-                    cuvantNou +=(char) (cuvantul[i] - 32);
+                    cuvantNou += (char)(cuvantul[i] - 32);
                 else
-                    cuvantNou +=(char) (cuvantul[i] + 32);
+                    cuvantNou += (char)(cuvantul[i] + 32);
             }
             return cuvantNou;
         }
-    /*Se considera un sir de n cuvinte. Sa se determine cuvantul de lungime maxima 
-     * care se poate forma prin concatenarea a doua dintre cuvintele citite. 
-     Ex: pentru n=5 si sirul de cuvinte 'mama', 'arc', 'conduce','paine','vine', se va afisa:'conducepaine' sau 'paineconduce'*/
+        /*Se considera un sir de n cuvinte. Sa se determine cuvantul de lungime maxima 
+         * care se poate forma prin concatenarea a doua dintre cuvintele citite. 
+         Ex: pentru n=5 si sirul de cuvinte 'mama', 'arc', 'conduce','paine','vine', se va afisa:'conducepaine' sau 'paineconduce'*/
 
         public static string maxConcatenat(string text)
         {
@@ -316,16 +316,19 @@ namespace Lectia3_Strings
 
             string lungime = "";
 
-                 for(int i=0;i<cuvinte.Length-1;i++) {
+            for (int i = 0; i < cuvinte.Length - 1; i++)
+            {
 
-                   for(int j = i + 1; j < cuvinte.Length; j++) {
+                for (int j = i + 1; j < cuvinte.Length; j++)
+                {
 
-                       if ((cuvinte[i] + cuvinte[j]).Length > lungime.Length) {
+                    if ((cuvinte[i] + cuvinte[j]).Length > lungime.Length)
+                    {
                         lungime = cuvinte[i] + cuvinte[j];
-                       }
-                   }
+                    }
+                }
 
-                 }
+            }
             return lungime;
         }
         /*"Mama arc conduce paine vine"=>["Mama ,"arc","conduce"]
@@ -352,16 +355,16 @@ namespace Lectia3_Strings
         /*Se considera un sire de n cuvinte. Sa se determine cuvantul cel mai mic in ordine lexicografica obtinut prin concatenarea a doua dintre cuvintele citite. 
          ExempluL Pentru n=5 si sirul :'mama','arc', 'conduce','paine','vine' se va afisa: 'arcconduce'*/
 
-     public static string[] minLexicografic(string text)
+        public static string[] minLexicografic(string text)
         {
             string[] cuvinte = text.Split(" ");
-            for(int i = 0; i < cuvinte.Length-1; i++)
+            for (int i = 0; i < cuvinte.Length - 1; i++)
             {
 
-                 for(int j = i + 1; j < cuvinte.Length; j++)
+                for (int j = i + 1; j < cuvinte.Length; j++)
                 {
 
-                    if (cuvinte[i].CompareTo(cuvinte[j])>0)
+                    if (cuvinte[i].CompareTo(cuvinte[j]) > 0)
                     {
 
                         string aux = cuvinte[i];
@@ -384,28 +387,28 @@ namespace Lectia3_Strings
         Presupunem B Punct Mobil.
         - 1 Propozitie 1 linie. 
         - 1 cuvant majuscula*/
-       /* public static string linieNouaMajuscula(string text)
+        /* public static string linieNouaMajuscula(string text)
+         {
+             string[] cuvinte = text.Split(".!"); 
+             for(int i=0; i<cuvinte.Length-1; i++)
+             {
+                 if(cuvinte[0] ==)
+             }
+         }*/
+        public static string lowerUpperCase(string cuvantul)
         {
-            string[] cuvinte = text.Split(".!"); 
-            for(int i=0; i<cuvinte.Length-1; i++)
-            {
-                if(cuvinte[0] ==)
-            }
-        }*/
-       public static string lowerUpperCase(string cuvantul)
-        {
-           
+
             return char.ToUpper(cuvantul[0]) + cuvantul.Substring(1);
         }
 
-       public static string lowerUpperCaseText(string text)
+        public static string lowerUpperCaseText(string text)
         {
             string[] cuvinte = text.Split(" ");
 
             string nou = "";
             for (int i = 0; i < cuvinte.Length; i++)
             {
-               nou += lowerUpperCase(cuvinte[i]) + " ";
+                nou += lowerUpperCase(cuvinte[i]) + " ";
             }
             return nou;
         }
@@ -414,29 +417,29 @@ namespace Lectia3_Strings
            0     0<2                  [text]->Text + " "            
            1     1<2                  [lower]-> Lower + " "*/
 
-      /*  public static string propozitiiImpartite(string text)
-        {
-            string[] cuvinte = text.Split(" !.");//["Ana are mere"]
-            string propozitieNoua = " ";
-            for (int i = 0; i > cuvinte.Length; i++)
-            {
-                if (cuvinte[i] == ("!. ")){
-                    propozitieNoua += lowerUpperCaseText(text);
-                }
-             }
-            return propozitieNoua;
-        }*/
-      public static void propoziteUpperCase(string text)
+        /*  public static string propozitiiImpartite(string text)
+          {
+              string[] cuvinte = text.Split(" !.");//["Ana are mere"]
+              string propozitieNoua = " ";
+              for (int i = 0; i > cuvinte.Length; i++)
+              {
+                  if (cuvinte[i] == ("!. ")){
+                      propozitieNoua += lowerUpperCaseText(text);
+                  }
+               }
+              return propozitieNoua;
+          }*/
+        public static void propoziteUpperCase(string text)
         {
             //char[] delimitatori =  { '!', '.' };
             string[] propozitii = text.Split(".!");//textul e impartit in propozitii
             string propozitieNoua = "";
-            for(int i = 0; i < propozitii.Length; i++)
+            for (int i = 0; i < propozitii.Length; i++)
             {
                 propozitieNoua += lowerUpperCaseText(propozitii[i]);
                 Console.WriteLine(lowerUpperCaseText(propozitii[i]) + "\n");
             }
-            
+
         }
         /*Se considera o lista cu n<100 prenume ale elevilor dintr-o clasa. 
          * Prenumele unei fete este recunoscut datorita faptului ca: 
@@ -475,25 +478,25 @@ namespace Lectia3_Strings
              Daca un cuvant nu contine vocale, atunci ultima silaba este intregul cuvant. 
             Ex: Pt. "armat" si "verificat" se va afisa "Rimeaza"*/
         }
-            
+
         public static void Rimeaza(string cuvant1, string cuvant2)
-            {
-                string ultimaSilabaCuv1 = "";
-                string ultimaSilabaCuv2 = "";
-                int i = cuvant1.Length-1;//plecam de la final
-                //cautam ultima vocala din primul cuvant si plecam de la final
-                while (isVocala(cuvant1[i]) == false && i >= 0)
-                    i--;
-                ultimaSilabaCuv1 = cuvant1.Substring(i);
-                i = cuvant2.Length - 1;
-                while (isVocala(cuvant2[i]) == false && i >= 0)
-                    i--;
-                ultimaSilabaCuv2 = cuvant2.Substring(i);
-                if (ultimaSilabaCuv1.CompareTo(ultimaSilabaCuv2) == 0)
-                    Console.WriteLine("Rimeaza");
-                else
-                    Console.WriteLine("Nu rimeaza.");
-            }
+        {
+            string ultimaSilabaCuv1 = "";
+            string ultimaSilabaCuv2 = "";
+            int i = cuvant1.Length - 1;//plecam de la final
+                                       //cautam ultima vocala din primul cuvant si plecam de la final
+            while (isVocala(cuvant1[i]) == false && i >= 0)
+                i--;
+            ultimaSilabaCuv1 = cuvant1.Substring(i);
+            i = cuvant2.Length - 1;
+            while (isVocala(cuvant2[i]) == false && i >= 0)
+                i--;
+            ultimaSilabaCuv2 = cuvant2.Substring(i);
+            if (ultimaSilabaCuv1.CompareTo(ultimaSilabaCuv2) == 0)
+                Console.WriteLine("Rimeaza");
+            else
+                Console.WriteLine("Nu rimeaza.");
+        }
 
         /*Se citeste un sir de maxim 200 de caractere, cvinte separate prin unul sau mai multe spatii
          a. Sa se elimine spatiile multiple dintre cuvinte. 
@@ -509,7 +512,7 @@ namespace Lectia3_Strings
             string[] cuvinte = text.Split(" ");
 
             string nou = "";
-            for(int i = 0; i<cuvinte.Length-1; i++)
+            for (int i = 0; i < cuvinte.Length - 1; i++)
             {
                 if (cuvinte[i] != "")//verifica si pentru mai mult de un spatiu le taie
                 {
@@ -521,13 +524,13 @@ namespace Lectia3_Strings
         /*i   |    i<cuvinte.Length-1    |   nou   |   cuvinte  |   nou   |  Ana  are   Mere
          0         0<2                        Ana        Ana         Ana     0     1      2
          1         1<2                            */
-        
+
         public static string upperAndLast(string text)
         {
             string[] cuvinte = text.Split(" ");
 
             string nou = "";
-            for(int i = 0; i<cuvinte.Length; i++)
+            for (int i = 0; i < cuvinte.Length; i++)
             {
 
                 string cuvant = cuvinte[i];//"ana"
@@ -575,18 +578,18 @@ namespace Lectia3_Strings
 
         //functie ce dubleaza vocalele mari
         public static string duplicateUpperCase(string text)
-        
+
         {
             string nou = "";
-            
-             for(int i = 0; i < text.Length; i++)
+
+            for (int i = 0; i < text.Length; i++)
             {
                 nou += text[i];
                 if (isVocalaUpperCase(text[i]))
                 {
                     nou += text[i];
                 }
-             }
+            }
 
             return nou;
         }
@@ -595,10 +598,10 @@ namespace Lectia3_Strings
         public static string deleteLowercase(string text)
         {
             string nou = "";
-            for (int i = 0; i<text.Length; i++)
+            for (int i = 0; i < text.Length; i++)
             {
-                
-                if (isVocalaLowerCase(text[i])==false)
+
+                if (isVocalaLowerCase(text[i]) == false)
                 {
                     nou += text[i];
                 }
@@ -610,7 +613,7 @@ namespace Lectia3_Strings
 
         public static string DuplicateUpperRemoveLower(string text)
         {
-          
+
 
             text = deleteLowercase(text);
 
@@ -622,8 +625,8 @@ namespace Lectia3_Strings
         public static bool IsCifra(char c)
         {
             string cifre = "0123456789";
-         
-            for(int i = 0; i<cifre.Length; i++)
+
+            for (int i = 0; i < cifre.Length; i++)
             {
                 if (cifre[i] == c)
                 {
@@ -632,19 +635,19 @@ namespace Lectia3_Strings
             }
             return false;
         }
-      
+
         //suma tututor cifrelor din sir
         public static int SumDigits(string text)
         {
             int sumDigitsIs = 0;
-            for(int i = 0; i<text.Length; i++)
+            for (int i = 0; i < text.Length; i++)
             {
                 if (IsCifra(text[i]) == true)
                 {
-              
+
                     int ValoareaConvertitaCharToInt = (int)Char.GetNumericValue(text[i]);
                     sumDigitsIs += ValoareaConvertitaCharToInt;
-                    
+
                 }
 
             }
@@ -652,12 +655,11 @@ namespace Lectia3_Strings
         }
 
         //realizati media aritmetica a codurilor ASCII cu litera mica
-        //apelare isLowerCase
 
         public static bool IsLowerCase(char c)
         {
             //if(c >= 'a' && c <= 'z')
-            if(c>=97 && c<= 122)
+            if (c >= 97 && c <= 122)
             {
                 return true;
             }
@@ -672,35 +674,143 @@ namespace Lectia3_Strings
             int SumAscii = 0;
             int contor = 0;
 
-            for(int i = 0; i<text.Length; i++)
+            for (int i = 0; i < text.Length; i++)
             {
                 //if(IsLowerCase(text[i]) == true)
-                if(char.IsLower(text[i]) == true)
+                if (char.IsLower(text[i]) == true)
                 {
                     contor++;
                     SumAscii += text[i];
-                    
+
                 }
             }
             AvgAscii = (double)SumAscii / contor;
             return AvgAscii;
-            
+
         }
         //de cate ori apare ultimul cuvant in tot sirul
-        //tbd sa comapre si sa adauge in contor si lower+upper case
+        //tbd sa compar si sa adaug in contor si lower+upper case
         public static int NrAparitii(string text)
         {
             int contor = 0;
             string[] cuvinte = text.Split(" ");
 
-            for(int i = 0; i<cuvinte.Length; i++)
+            string cuv = cuvinte[cuvinte.Length - 1];
+
+            for (int i = 0; i < cuvinte.Length - 1; i++)
             {
-                if (cuvinte[cuvinte.Length - 1] == cuvinte[i])
+                if (cuvinte[i].Equals(cuv))
+                {
+
                     contor++;
+                }
+
             }
             return contor;
         }
-       
+
+        //equals egalezi doua strinuri
+        //compareTo compari doua string 
+        //Interschimbati elementele sirului in oglinda fata de mijloc
+
+        public static void SirulOglinda(string text)
+        {
+            string nou = "";
+            for (int i = 0, j = text.Length - 1; i < j; i++, j--)
+            {
+                Console.Write(text[i]);
+                Console.Write(text[j]);
+            }
+        }
+
+        //Cate litere mici avem? Sunt toate literele consoane?
+        public static bool IsConsoana(char c)
+        {
+            string consoane = "BCDFGHJKMNPQRSTVWXYTVWXYZbcdfghjkmnpqrstvqxyz";
+
+
+            return consoane.Contains(c);
+
+        }
+        public static bool isToateConsoane(string text)
+        {
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (char.IsUpper(text[i]) && IsConsoana(text[i]) == true)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static int CountLowerCase(string text)
+        {
+            int contorLowerCase = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (char.IsLower(text[i]))
+                {
+                    contorLowerCase++;
+                }
+            }
+            return contorLowerCase;
+        }
+
+        /*se citeste un sir de max 200 caractere, cuvinte separate prin:
+         " , . ! ? : : "
+        a. Realizati un nou sir cu toate cuvintele palindrome.
+        b. Afisati cuvantul ce are cele mai multe vocale.
+        c. Modificati sirul cititi astfel incat sa stergeti toate cuvintele e au mai putin de 4 caractere*/
+        public static bool isPalindrom(string text)
+        {
+            string nou = "";
+            for (int i = text.Length - 1; i >= 0; i--)//rasturnatul cuvantului
+            {
+                nou += text[i];
+
+            }
+            return nou.Equals(text);
+        }
+        //b.Afisati cuvantul ce are cele mai multe vocale.
+        //NumarareVocaleText
+
+      /* TBD public static void AfisareCuvVocale(string text)
+        {
+            string[] cuvinte = text.Split(" ");
+            string cuvantNouLung = "";
+
+            int contorMaxim = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (NumarareVocaleText(cuvinte[i]) > contorMaxim)
+                {
+                    contorMaxim = NumarareVocaleText(cuvinte[i]);
+                    cuvantNouLung = cuvinte[i];
+                }
+         
+            }*/
+
+            /**/
+            //Interschimbati elementele sirului in oglinda fata de mijloc
+            /*   TBD public static string OglindaSir(string text)
+               {
+                   string nou = "";
+                   for(int i = 0; i<text.Length/2; i++)
+                   {
+                       //i=0 => nou[0] = text[text.length-1]
+                       //i=1 => nou[1] = text[text.length-2]
+                       nou += text[text.Length - i - 1];
+                   }
+                   for(int i=0; i<=text.Length/2; i++)
+                   {
+                       nou += text[text.Length / 2 - i]; 
+                   }
+                   return nou;
+               }*/
+        }
     }
 }
 
