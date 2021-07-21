@@ -777,42 +777,25 @@ namespace Lectia3_Strings
         //b.Afisati cuvantul ce are cele mai multe vocale.
         //NumarareVocaleText
 
-      /* TBD public static void AfisareCuvVocale(string text)
+        public static void AfisareCuvVocale(string text)
         {
             string[] cuvinte = text.Split(" ");
             string cuvantNouLung = "";
 
             int contorMaxim = 0;
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 0; i < cuvinte.Length; i++)
             {
                 if (NumarareVocaleText(cuvinte[i]) > contorMaxim)
                 {
                     contorMaxim = NumarareVocaleText(cuvinte[i]);
                     cuvantNouLung = cuvinte[i];
                 }
-         
-            }*/
-
-            /**/
-            //Interschimbati elementele sirului in oglinda fata de mijloc
-            /*   TBD public static string OglindaSir(string text)
-               {
-                   string nou = "";
-                   for(int i = 0; i<text.Length/2; i++)
-                   {
-                       //i=0 => nou[0] = text[text.length-1]
-                       //i=1 => nou[1] = text[text.length-2]
-                       nou += text[text.Length - i - 1];
-                   }
-                   for(int i=0; i<=text.Length/2; i++)
-                   {
-                       nou += text[text.Length / 2 - i]; 
-                   }
-                   return nou;
-               }*/
+            }
+            Console.Write(cuvantNouLung);
         }
     }
 }
+
 
 /*  public static string eraseChar(string text ,char x)
           {

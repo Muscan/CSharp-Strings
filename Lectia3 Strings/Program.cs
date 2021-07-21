@@ -102,7 +102,7 @@ namespace Lectia3_Strings
 
             //Console.WriteLine(isPalindrom("ana"));
 
-            //AfisareCuvVocale("ae aei aeiou");
+            AfisareCuvVocale("ae aei aeiou");
 
     
 
