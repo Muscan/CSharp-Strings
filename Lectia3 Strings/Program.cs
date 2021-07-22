@@ -102,14 +102,22 @@ namespace Lectia3_Strings
 
             //Console.WriteLine(isPalindrom("ana"));
 
-            AfisareCuvVocale("ae aei aeiou");
+            //AfisareCuvVocale("ae aei aeiou");
+            //CuvintelePalindrome("opo rar mam dus 121");
 
-    
+            //CuvintePeste4Caractere("unu doi zece unsprezece");
+
+            //AlTreileCuvantCitit("Primul Doilea Treilea");
+
+            //Console.WriteLine(DeleteReplace("mamam fraif tarif tartele telet"));
+            Console.Write(DeleteReplace2("12341 12345 1234 0222222220"));
+
+
 
 
 
         }
-        
+
 
     }
 }

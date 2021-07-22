@@ -401,6 +401,7 @@ namespace Lectia3_Strings
             return char.ToUpper(cuvantul[0]) + cuvantul.Substring(1);
         }
 
+
         public static string lowerUpperCaseText(string text)
         {
             string[] cuvinte = text.Split(" ");
@@ -524,7 +525,9 @@ namespace Lectia3_Strings
         /*i   |    i<cuvinte.Length-1    |   nou   |   cuvinte  |   nou   |  Ana  are   Mere
          0         0<2                        Ana        Ana         Ana     0     1      2
          1         1<2                            */
-
+        //b.Sa se transforme prima litera din fiecare cuvant in litera mare si sa se inlocuoasca
+        //ultima litera din fiecare cuvant cu urmatoarea de dupa ea din alfabet.
+        //ana => Anb
         public static string upperAndLast(string text)
         {
             string[] cuvinte = text.Split(" ");
@@ -734,7 +737,6 @@ namespace Lectia3_Strings
         }
         public static bool isToateConsoane(string text)
         {
-
             for (int i = 0; i < text.Length; i++)
             {
                 if (char.IsUpper(text[i]) && IsConsoana(text[i]) == true)
@@ -764,15 +766,34 @@ namespace Lectia3_Strings
         a. Realizati un nou sir cu toate cuvintele palindrome.
         b. Afisati cuvantul ce are cele mai multe vocale.
         c. Modificati sirul cititi astfel incat sa stergeti toate cuvintele e au mai putin de 4 caractere*/
-        public static bool isPalindrom(string text)
+        public static bool IsPalindrom(string text)
         {
-            string nou = "";
-            for (int i = text.Length - 1; i >= 0; i--)//rasturnatul cuvantului
+            string cuvantulInversat = "";
+            for (int i = text.Length - 1; i >= 0; i--)//Pleaca de la ultima litera
+                                                      //i>=0 pana la prima litera
+                                                      //rasturnatul cuvantului
             {
-                nou += text[i];
+                cuvantulInversat += text[i];//adauga cate o litera de la sfarsit la inceputul cuvantului
 
             }
-            return nou.Equals(text);
+            return cuvantulInversat.Equals(text);//true sau false daca "opo" inversat = "opo" true, "abc" = false
+        }
+
+        public static void CuvintelePalindrome(string text)
+        {
+            string SirPalindrom = "";
+            string[] cuvant = text.Split(" ");
+
+            for(int i=0; i<cuvant.Length; i++)
+            {
+                if (IsPalindrom(cuvant[i]))
+                {
+                    SirPalindrom += cuvant[i];
+                    SirPalindrom += " ";
+                }
+            }
+            Console.Write(SirPalindrom);
+
         }
         //b.Afisati cuvantul ce are cele mai multe vocale.
         //NumarareVocaleText
@@ -782,17 +803,116 @@ namespace Lectia3_Strings
             string[] cuvinte = text.Split(" ");
             string cuvantNouLung = "";
 
-            int contorMaxim = 0;
+            int NrVocaleMaximCuvant = 0;
             for (int i = 0; i < cuvinte.Length; i++)
             {
-                if (NumarareVocaleText(cuvinte[i]) > contorMaxim)
+                if (NumarareVocaleText(cuvinte[i]) > NrVocaleMaximCuvant)
                 {
-                    contorMaxim = NumarareVocaleText(cuvinte[i]);
+                    NrVocaleMaximCuvant = NumarareVocaleText(cuvinte[i]);
                     cuvantNouLung = cuvinte[i];
                 }
             }
             Console.Write(cuvantNouLung);
         }
+
+        //c.Modificati sirul citit astfel incat sa stergeti toate cuvintele ce au mai putin de 4 caractere
+        public static void CuvintePeste4Caractere(string text)
+        {
+            string[] cuvinte = text.Split(" ");
+            string CuvintePeste4Char = "";
+            {
+                for(int i = 0; i<cuvinte.Length; i++)
+                //i<cuvinte.Length cate cuvinte sunt in sir
+                //i<cuvinte[i].Length cate litere are cuvantul cu indexul i
+                //i<text.Length cate litere are textul    
+                {
+                      if(cuvinte[i].Length >= 4)
+                    {
+                        CuvintePeste4Char += cuvinte[i];
+                        CuvintePeste4Char += " ";
+                    }
+                }
+            }
+            Console.Write(CuvintePeste4Char);
+        }
+       //d. Care este al treilea cuvant citit.
+       // Daca sirul nu are cel putin 3 cuvinte se va afisa un mesaj.
+
+        public static void AlTreileCuvantCitit(string text)
+        {
+            string[] cuvant = text.Split(" ");
+
+            if (cuvant.Length < 3)
+            {
+                Console.Write(" Un mesaj "); 
+            }
+            else
+            {
+                Console.Write(cuvant[2]);
+            }
+        }
+
+        //stergeti cuvintele de exact 5 litere ce au prima si ultima litera identica
+
+        //verificare conditie sa aiba 5 litere, prima ultima litera identica
+        public static bool IsFiveFirstLastIdentical(string text)
+        {
+            if(text.Length == 5
+              &&text[0] == text[4])
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //delete
+
+        /*public static string DeleteReplace(string text)
+        {
+            string[] cuvant = text.Split(" ");
+            int pozitie;
+            for (int i = 0; i<cuvant.Length; i++)
+            {
+                if (IsFiveFirstLastIdentical(cuvant[i])== true){
+                    pozitie = text.IndexOf(cuvant[i]);//calcul pozitia in sir(Indexul de la care incepe cuvant[i]
+                    text = text.Remove(pozitie, cuvant[i].Length);
+                }
+            }
+            return text;
+        }*/
+
+        public static string DeleteReplace2(string text)
+        {
+            string[] cuvant = text.Split(" ");
+            string textIntermediar = "";
+            int pozitie;
+            for (int i = 0; i < cuvant.Length; i++)
+            {
+                if (IsFiveFirstLastIdentical(cuvant[i]) == true)
+                {
+                    pozitie = text.IndexOf(cuvant[i]);
+                    textIntermediar = text.Substring(0, pozitie);
+                    text = textIntermediar + text.Substring(pozitie + cuvant[i].Length); 
+                }
+            }
+            return text;
+        }
+        
+
+        /*  public static string deleteLowercase(string text)
+        {
+            string nou = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+
+                if (isVocalaLowerCase(text[i]) == false)
+                {
+                    nou += text[i];
+                }
+            }
+            return nou;
+        }*/
+
     }
 }
 
