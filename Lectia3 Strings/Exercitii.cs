@@ -852,7 +852,7 @@ namespace Lectia3_Strings
             }
         }
 
-        //stergeti cuvintele de exact 5 litere ce au prima si ultima litera identica
+        //2e stergeti cuvintele de exact 5 litere ce au prima si ultima litera identica
 
         //verificare conditie sa aiba 5 litere, prima ultima litera identica
         public static bool IsFiveFirstLastIdentical(string text)
@@ -865,25 +865,10 @@ namespace Lectia3_Strings
             return false;
         }
 
-        //delete
-
-        /*public static string DeleteReplace(string text)
-        {
-            string[] cuvant = text.Split(" ");
-            int pozitie;
-            for (int i = 0; i<cuvant.Length; i++)
-            {
-                if (IsFiveFirstLastIdentical(cuvant[i])== true){
-                    pozitie = text.IndexOf(cuvant[i]);//calcul pozitia in sir(Indexul de la care incepe cuvant[i]
-                    text = text.Remove(pozitie, cuvant[i].Length);
-                }
-            }
-            return text;
-        }*/
 
         public static string DeleteReplace2(string text)
         {
-            string[] cuvant = text.Split(" ");
+            string[] cuvant = text.Split(' ','.', '?', ';', ':', '!');
             string textIntermediar = "";
             int pozitie;
             for (int i = 0; i < cuvant.Length; i++)
@@ -893,26 +878,87 @@ namespace Lectia3_Strings
                     pozitie = text.IndexOf(cuvant[i]);
                     textIntermediar = text.Substring(0, pozitie);//textIntermediar = substringul aflat inainte de cuvant[i]
                     text = textIntermediar + text.Substring(pozitie + cuvant[i].Length); //concatenam textIntermediar cu substringul de dupa cuvant[i]
-                    if (text[0] == ' ') text = text.Substring(1);//eliminam spatiile                
+                 
                 }
             }
             return text;
         }
 
-       
-        /*  public static string deleteLowercase(string text)
-        {
-            string nou = "";
-            for (int i = 0; i < text.Length; i++)
-            {
+        //2F Dublati grupurile de 3 litere identice
+        //cuviiintele suntluuungi => cuviiiiiintele sunt luuuuuungi 
 
-                if (isVocalaLowerCase(text[i]) == false)
+        public static string Duplicate3Letters(string text)
+        {
+            string TextCuLitereTriplate = "";
+            TextCuLitereTriplate += text[0];
+            TextCuLitereTriplate += text[1];
+            for(int i = 2; i<text.Length; i++)
+            {
+                TextCuLitereTriplate += text[i];
+                if (text[i].Equals(text[i -1]) && text[i].Equals(text[i-2]))
                 {
-                    nou += text[i];
+                    TextCuLitereTriplate += text[i-2];
+                    TextCuLitereTriplate += text[i-1];
+                    TextCuLitereTriplate += text[i];
                 }
             }
+            return TextCuLitereTriplate;
+
+        }
+        //2g Transformati ultima litera din fiecare cuvant(doar daca este litera mica) in litera mare
+
+        public static bool IsLastLowerCase(string cuvantul)
+        {
+            if(char.IsLower(cuvantul[cuvantul.Length-1]) == true)
+            {
+                return true;
+            }
+            return false;
+        }
+      
+      
+
+        public static string replaceLastLowercase(string text)
+        {
+            string nou = "";
+            string[] cuvant = text.Split(" ");
+            for (int i = 0; i < cuvant.Length; i++)
+            {
+
+                if (IsLastLowerCase(cuvant[i]) == true)
+                {
+                    string cuvantModificat = cuvant[i];
+                    char LastLetter = cuvantModificat[cuvantModificat.Length - 1];
+                    LastLetter = char.ToUpper(LastLetter);
+                    cuvantModificat = cuvantModificat.Substring(0, cuvantModificat.Length - 1) + LastLetter;
+                    nou += cuvantModificat;
+                }
+                else
+                {
+                    nou += cuvant[i];
+                }
+                nou += " ";
+            }
             return nou;
-        }*/
+        }
+
+        public static bool IsPrefix(string cuvantulInitial, string prefixulCautat)
+        {
+            if (cuvantulInitial.IndexOf(prefixulCautat) == 0)
+                return true;
+            return false;
+
+        }
+
+        public static void Prefixe(string text)
+        {
+            string[] cuvinte = text.Split(" ");
+            for(int i=1; i<cuvinte.Length; i++)
+            {
+                if (IsPrefix(cuvinte[i], cuvinte[0]) == true)
+                    Console.Write(cuvinte[i] + " ");
+            }
+        }
 
     }
 }

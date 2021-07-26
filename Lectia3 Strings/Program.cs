@@ -110,12 +110,11 @@ namespace Lectia3_Strings
             //AlTreileCuvantCitit("Primul Doilea Treilea");
 
             //Console.WriteLine(DeleteReplace("mamam fraif tarif tartele telet"));
-            Console.Write(DeleteReplace2("12341 12345 1234 0222222220"));
-
-
-
-
-
+            //Console.Write(DeleteReplace2("12341; 12345 1234? 0222222220"));
+            //Console.Write(Duplicate3Letters("1112  2223  3334"));
+            //Console.Write(replaceLastLowercase("Ultima doua treia"));
+            //numar numarat
+            Prefixe("nu numarat abs nr numalua");
         }
 
 
