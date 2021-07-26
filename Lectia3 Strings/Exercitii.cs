@@ -891,14 +891,15 @@ namespace Lectia3_Strings
                 if (IsFiveFirstLastIdentical(cuvant[i]) == true)
                 {
                     pozitie = text.IndexOf(cuvant[i]);
-                    textIntermediar = text.Substring(0, pozitie);
-                    text = textIntermediar + text.Substring(pozitie + cuvant[i].Length); 
+                    textIntermediar = text.Substring(0, pozitie);//textIntermediar = substringul aflat inainte de cuvant[i]
+                    text = textIntermediar + text.Substring(pozitie + cuvant[i].Length); //concatenam textIntermediar cu substringul de dupa cuvant[i]
+                    if (text[0] == ' ') text = text.Substring(1);//eliminam spatiile                
                 }
             }
             return text;
         }
-        
 
+       
         /*  public static string deleteLowercase(string text)
         {
             string nou = "";
@@ -929,3 +930,5 @@ namespace Lectia3_Strings
               }
               return nou;
           }*/
+
+/**/
