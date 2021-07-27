@@ -1101,7 +1101,60 @@ namespace Lectia3_Strings
             }
             return cuvintSingular;
         }
+        //3e. Stergeti toate literele C si dublati toate literele D
+        public static string DeleteCLetter(string text)
+        {
+           
+            //char literaDeSters = '';
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] == 'C')
+                {
 
+                    text = erasePoz(text, i);
+                    i--;//Verifica si literele consecutive
+                }
+
+            }
+            return text;
+        }
+        /*                                                                                C C a r
+         *                                                                                0 1 2 3
+         * i<text.Length    |  text[i] == C  |  text = erasePoz(text, i)     |    i--     |    text  |  i
+         * i=0 i<4              true            Car                                -1          Car      0
+         * i=0 i<3              true            ar                                 -1           ar      0
+         * i=0 i<2              false                                                                   1
+         * i=1 i<2              false                                                                   2
+         * i=2 i<2 False
+         * 
+         *                                                                                       ar
+          */
+        public static string DuplicateDLetter(string text)
+        {
+            string cuvantNou = "";
+            for(int i=0; i<text.Length; i++)
+            {
+                cuvantNou += text[i];
+                if(text[i] == 'D')
+                {
+                    cuvantNou += text[i];
+                
+
+                }
+            }
+            return cuvantNou;
+        }
+        public static String RemoveCDuplicateD(string text)
+        {
+
+            text = DeleteCLetter(text);
+
+            text = DuplicateDLetter(text);
+
+            return text;
+        }
+       
+      
 
     }
 }

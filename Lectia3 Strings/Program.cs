@@ -106,9 +106,12 @@ namespace Lectia3_Strings
             //Prefixe("nu numarat abs nr numalua");
             //DeleteMultipleSpaces("Spaaces    and    ooother     spaa   ces");
             //FirstCharLowerToUpperLastLetterNextAlphabetChar("aba cde EFz");
-            
+
             //WordNotPalindrome("aba anna rime");
-            Console.Write(SingularFreq("unic text text text uniq"));
+            //Console.Write(SingularFreq("unic text text text uniq"));
+            //Console.Write(DeleteCLetter("CCar"));
+            //Console.Write(DuplicateDLetter("DdD"));
+            Console.WriteLine(RemoveCDuplicateD("DcarC CDcar Dcar"));
 
 
         }
