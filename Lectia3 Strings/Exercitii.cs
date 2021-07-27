@@ -966,7 +966,7 @@ namespace Lectia3_Strings
          b. Se se faca prima litera din fiecare cuvant mare, 
            si sa se inlocuiasca ultima litera cu urmatoarea din alfabet
         c. Sa se inverseze toate cuvintele din sir ce NU sunt palindrome. 
-        d. Realizati un nou sir  in care sa s epuna toate cuvintele care au 
+        d. Realizati un nou sir  in care sa se puna toate cuvintele care au 
            frecventa singulara in sir
            (singular - care a par doar o data in sirul citit)
         e. Stergeti toate literele C si dublati toate literele D*/
@@ -1013,8 +1013,16 @@ namespace Lectia3_Strings
         {
 
             char LastLetter = cuvantModificat[cuvantModificat.Length - 1];
-            if(LastLetter == 'z')
-            LastLetter++;
+            if (LastLetter == 'z')
+            {
+                LastLetter = 'a';
+            }
+            else if (LastLetter =='Z')
+            {
+                LastLetter = 'A';
+            }
+            else
+                LastLetter++;
             cuvantModificat = cuvantModificat.Substring(0, cuvantModificat.Length - 1) + LastLetter;
 
             return cuvantModificat;
@@ -1034,6 +1042,66 @@ namespace Lectia3_Strings
             }
             Console.Write(cuvantNou);
         }
+        //3.c Sa se inverseze toate cuvintele din sir ce NU sunt palindrome.
+        
+        public static string ReversedWord(string cuvantDeInversat)
+        {
+            string cuvantInversat = "";
+            for (int i = cuvantDeInversat.Length - 1; i >= 0; i--)
+            {
+                cuvantInversat += cuvantDeInversat[i];
+            }
+            return cuvantInversat;
+        } 
+
+        public static void WordNotPalindrome(string text)
+        {
+            string[] cuvant = text.Split(" ");
+            string cuvantulInversat = "";
+            string textulNouCuInversateSiPalindrome= "";
+            for(int i=0; i<cuvant.Length; i++)
+            {
+                if(IsPalindrom(cuvant[i])  == false)
+                {
+                    cuvantulInversat = ReversedWord(cuvant[i]);
+                    textulNouCuInversateSiPalindrome += cuvantulInversat + " ";
+
+                }
+                else
+                {
+                    textulNouCuInversateSiPalindrome += cuvant[i] + " ";
+                }
+
+            }
+            Console.Write(textulNouCuInversateSiPalindrome);
+        }
+
+        //3d. Realizati un nou sir  in care sa se puna toate cuvintele care au 
+        //frecventa singulara in sir
+        //(singular - care a par doar o data in sirul citit)
+        public static string SingularFreq(string text)
+        {
+            string[] cuvant = text.Split(" ");
+            string cuvintSingular = "";
+            for(int i = 0; i<cuvant.Length; i++)
+            {
+                int contorDeCateOriIntalnesteCuvantulInPropozitie = 0;
+                for(int j =0; j<cuvant.Length; j++)
+                {   
+                    if (cuvant[i].Equals(cuvant[j]))
+                    {
+                        contorDeCateOriIntalnesteCuvantulInPropozitie++;
+                    }
+                    
+                }
+                if(contorDeCateOriIntalnesteCuvantulInPropozitie == 1)
+                {
+                    cuvintSingular += cuvant[i] +" ";
+                }
+            }
+            return cuvintSingular;
+        }
+
 
     }
 }

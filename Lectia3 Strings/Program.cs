@@ -18,25 +18,14 @@ namespace Lectia3_Strings
             //string t = "Anb";
             //Console.WriteLine(t.CompareTo(x));
 
-
-
-
             // string text = "Doremi re";
-
-
-
 
             // Console.WriteLine(text.IndexOf("re"));
 
             //Console.WriteLine(text.Substring(4));
             // Console.WriteLine(contorSilaba(text, "re"));
 
-
-
-
-
             //string text = "Ana are mere";//=["ANA",ARE,"MERE"]
-
 
             //Console.WriteLine(cuvinte[2]);
 
@@ -100,7 +89,7 @@ namespace Lectia3_Strings
             //Console.WriteLine(sol);
 
 
-            //Console.WriteLine(isPalindrom("ana"));
+            //Console.WriteLine(IsPalindrom("ana"));
 
             //AfisareCuvVocale("ae aei aeiou");
             //CuvintelePalindrome("opo rar mam dus 121");
@@ -116,7 +105,12 @@ namespace Lectia3_Strings
             //numar numarat
             //Prefixe("nu numarat abs nr numalua");
             //DeleteMultipleSpaces("Spaaces    and    ooother     spaa   ces");
-            FirstCharLowerToUpperLastLetterNextAlphabetChar("aba cde EFz");
+            //FirstCharLowerToUpperLastLetterNextAlphabetChar("aba cde EFz");
+            
+            //WordNotPalindrome("aba anna rime");
+            Console.Write(SingularFreq("unic text text text uniq"));
+
+
         }
 
 
