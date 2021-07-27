@@ -6,6 +6,7 @@ using System.Text;
 namespace Lectia3_Strings
 {
     class Exercitii
+        
     {
         /*Se considera un text de maximum 255 de caractere. 
          * 
@@ -916,8 +917,7 @@ namespace Lectia3_Strings
             return false;
         }
       
-      
-
+        
         public static string replaceLastLowercase(string text)
         {
             string nou = "";
@@ -942,12 +942,14 @@ namespace Lectia3_Strings
             return nou;
         }
 
+
+        //2h Verificati daca primul cuvant e prefix pt. celelalte cuvinte din text
         public static bool IsPrefix(string cuvantulInitial, string prefixulCautat)
         {
             if (cuvantulInitial.IndexOf(prefixulCautat) == 0)
+                //IndexOf -> daca pozitia prefixului cautat in cuvant initial == 0
                 return true;
             return false;
-
         }
 
         public static void Prefixe(string text)
@@ -959,10 +961,82 @@ namespace Lectia3_Strings
                     Console.Write(cuvinte[i] + " ");
             }
         }
+        /*3. Se citeste un sir de max 100 cuv. separate prin spatii
+         a. Sa se stearga toate spatiile multiple
+         b. Se se faca prima litera din fiecare cuvant mare, 
+           si sa se inlocuiasca ultima litera cu urmatoarea din alfabet
+        c. Sa se inverseze toate cuvintele din sir ce NU sunt palindrome. 
+        d. Realizati un nou sir  in care sa s epuna toate cuvintele care au 
+           frecventa singulara in sir
+           (singular - care a par doar o data in sirul citit)
+        e. Stergeti toate literele C si dublati toate literele D*/
+
+        //3a Sa se stearga toate spatiile multiple
+       
+        public static void DeleteMultipleSpaces(string text)
+        {   
+            string[] cuvant = text.Split(" ");
+            string CuvantNou = "";
+            for (int i = 0; i < cuvant.Length; i++)
+            {
+                if(cuvant[i] != "")
+                {
+              
+                    CuvantNou += cuvant[i] + " ";
+                }
+            }
+            Console.Write("Cuvantul nou" + CuvantNou);
+        }
+        //3b Se se faca prima litera din fiecare cuvant mare, 
+        //si sa se inlocuiasca ultima litera cu urmatoarea din alfabet
+        public static bool IsFirstLowerCase(string cuvantul)
+        {
+            if(char.IsLower(cuvantul[0]) == true)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static string ToUpperFirstLetter(string cuvantModificat)
+        {
+          
+            if (IsFirstLowerCase(cuvantModificat) == true)
+            {
+                char FirstLetter = cuvantModificat[0];
+                FirstLetter = char.ToUpper(FirstLetter);
+                cuvantModificat = FirstLetter + cuvantModificat.Substring(1);//merge pana la finalul cuvantului
+            }
+            return cuvantModificat;
+        }
+
+        public static string NextlphabetLetterLastChar(string cuvantModificat)
+        {
+
+            char LastLetter = cuvantModificat[cuvantModificat.Length - 1];
+            if(LastLetter == 'z')
+            LastLetter++;
+            cuvantModificat = cuvantModificat.Substring(0, cuvantModificat.Length - 1) + LastLetter;
+
+            return cuvantModificat;
+        }
+
+        public static void FirstCharLowerToUpperLastLetterNextAlphabetChar(string text)
+        {
+            string[] cuvant = text.Split(" ");
+            string cuvantNou = "";
+            for(int i = 0; i<cuvant.Length; i++)
+            {
+                string cuvantModificat = cuvant[i];
+                cuvantModificat = ToUpperFirstLetter(cuvantModificat);
+                cuvantModificat = NextlphabetLetterLastChar(cuvantModificat);
+                cuvantNou += cuvantModificat + " ";
+
+            }
+            Console.Write(cuvantNou);
+        }
 
     }
 }
-
 
 /*  public static string eraseChar(string text ,char x)
           {

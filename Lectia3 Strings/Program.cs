@@ -66,7 +66,7 @@ namespace Lectia3_Strings
             //prenumeFete(prenume);
             //Rimeaza("armat", "verificat");
 
-            //tring text=  SirEliminare("   Ana   are   Mere ");//=>{"Ana","are","","","Mere"
+            //string text=  SirEliminare("   Ana   are   Mere ");//=>{"Ana","are","","","Mere"
             //Console.WriteLine(text);
 
             //string text1 = upperAndLast("Ana are mere");
@@ -112,9 +112,11 @@ namespace Lectia3_Strings
             //Console.WriteLine(DeleteReplace("mamam fraif tarif tartele telet"));
             //Console.Write(DeleteReplace2("12341; 12345 1234? 0222222220"));
             //Console.Write(Duplicate3Letters("1112  2223  3334"));
-            //Console.Write(replaceLastLowercase("Ultima doua treia"));
+            //Console.Write(replaceLastLowercase("Unul doua trei"));
             //numar numarat
-            Prefixe("nu numarat abs nr numalua");
+            //Prefixe("nu numarat abs nr numalua");
+            //DeleteMultipleSpaces("Spaaces    and    ooother     spaa   ces");
+            FirstCharLowerToUpperLastLetterNextAlphabetChar("aba cde EFz");
         }
 
 
