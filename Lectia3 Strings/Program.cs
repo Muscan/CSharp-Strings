@@ -111,7 +111,7 @@ namespace Lectia3_Strings
             //Console.Write(SingularFreq("unic text text text uniq"));
             //Console.Write(DeleteCLetter("CCar"));
             //Console.Write(DuplicateDLetter("DdD"));
-            Console.WriteLine(RemoveCDuplicateD("DcarC CDcar Dcar"));
+            //Console.WriteLine(RemoveCDuplicateD("DcarC CDcar Dcar"));
 
 
         }

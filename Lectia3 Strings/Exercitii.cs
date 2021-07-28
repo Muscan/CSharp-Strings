@@ -1153,13 +1153,14 @@ namespace Lectia3_Strings
 
             return text;
         }
-       
+       //Se co
       
 
     }
 }
 
-/*  public static string eraseChar(string text ,char x)
+/* //functie care sterge toate caracterele date ca parametru
+ * public static string eraseChar(string text ,char x)
           {
               string[] exemplu = text.Split(x);
               string nou = "";
