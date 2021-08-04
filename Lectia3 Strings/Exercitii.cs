@@ -103,23 +103,6 @@ namespace Lectia3_Strings
         Exemplu: Pt. mamamie, se va afisa aaie*/
 
 
-
-        //functie ce sterge dintr-un text tot caracter
-
-
-        /*  public static string eraseChar(string text ,char x)
-          {
-              string[] exemplu = text.Split(x);
-              string nou = "";
-              for(int i = 0; i < exemplu.Length; i++)
-              {
-
-                  nou += exemplu[i];
-
-              }
-              return nou;
-          }*/
-
         public static string eraseFirstLetter(string cuvant)
         {
             string nouInCareSeSalveaza = "";

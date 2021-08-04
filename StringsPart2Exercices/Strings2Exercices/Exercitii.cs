@@ -73,11 +73,11 @@ namespace Strings2Exercices
         //functie ce verifica daca textul are 1 cifra inainte de text
         //functie ce verifica daca textul are 2 cifre inainte de text
         
-        public static string Inserare(char c ,int contor)
+        public static string Inserare(char c ,int nrAparitiiCaracterInNoulString)
         {
             //formarea stringului ce trebuie adaugat
             string nou = "";
-            for (int i = 1; i <= contor; i++)
+            for (int i = 1; i <= nrAparitiiCaracterInNoulString; i++)
             {
                 nou += c;
             }

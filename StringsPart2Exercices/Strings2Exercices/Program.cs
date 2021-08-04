@@ -7,9 +7,9 @@ namespace Strings2Exercices
         static void Main(string[] args)
         {
             //Rimeaza("Kiu", "akio");    
-            //Console.Write(Inserare("Ana", 1, 't', 2));
+            Console.Write(Inserare('Z',5));
             //TextulCodificatPt1Cifra("1G1o1L");
-            TextCodificatV2("1G11o1L");
+            //TextCodificatV2("1G11o1L");
         }
             
     }
